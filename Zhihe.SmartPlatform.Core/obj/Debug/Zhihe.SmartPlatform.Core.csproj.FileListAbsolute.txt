@@ -1,0 +1,10 @@
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.dll
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.pdb
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.dll
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.pdb
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.csprojResolveAssemblyReference.cache
+I:\MVC4\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.dll
+I:\MVC4\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.pdb
+I:\MVC4\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.csprojResolveAssemblyReference.cache
+I:\MVC4\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.dll
+I:\MVC4\Zhihe.Smartplatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.pdb

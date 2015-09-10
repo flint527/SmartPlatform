@@ -1,0 +1,4 @@
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.pdb
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.pdb
