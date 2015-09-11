@@ -287,9 +287,7 @@ xcopy /s /y  %25PlginBinDirectory%25 %25WebPlginBinDirectory%25
 
 if not exist %25WebPlginViewDirectory%25 md  %25WebPlginViewDirectory%25
 xcopy /s /y %25PluginViewDirectory%25 %25WebPlginViewDirectory%25
-
-if not exist %25WebXmlFilePath%25 md  %25WebXmlFilePath%25
-xcopy /s /y %25PluginXmlFilePath%25 %25WebXmlFilePath%25</PostBuildEvent>
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

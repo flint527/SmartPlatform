@@ -92,6 +92,7 @@ I:\MVC4\Zhihe.Smartplatform\Zhihe.Smartplatform.Web\bin\zh-Hans\System.Web.WebPa
 I:\MVC4\Zhihe.Smartplatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.csprojResolveAssemblyReference.cache
 I:\MVC4\Zhihe.Smartplatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.dll
 I:\MVC4\Zhihe.Smartplatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.pdb
+D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.csprojResolveAssemblyReference.cache
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\Zhihe.Smartplatform.Web.dll.config
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\Zhihe.Smartplatform.Web.dll
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\Zhihe.Smartplatform.Web.pdb
@@ -136,6 +137,5 @@ D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\zh-Hans\System.Web
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\zh-Hans\System.Web.WebPages.resources.dll
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.csprojResolveAssemblyReference.cache
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.dll
 D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.Web\obj\Debug\Zhihe.Smartplatform.Web.pdb

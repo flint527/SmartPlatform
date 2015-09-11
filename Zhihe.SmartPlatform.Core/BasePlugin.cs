@@ -15,20 +15,41 @@ namespace Zhihe.SmartPlatform.Core
 
         public abstract string Description { get; }
 
-        public abstract string Url { get; }//内容为空的时候区默认值：Controller/{action}/{id}
+        public abstract string Url { get; set; }//内容为空的时候取默认值：Controller/{action}/{id}
 
-        public abstract List<Function> Functions { get; }
+        public abstract List<Function> Functions { get; set; }
 
-        public PluginEntity GetPluginEntity(Assembly Assembly,string Url, out List<Function> Functions) 
+
+        public PluginEntity GetPluginEntity(Assembly _Assembly, string _Url, out List<Function> _Functions)
         {
-            this.Functions.ForEach(x => { x.Url = Url; x.Assembly = Assembly; });
-            Functions = this.Functions;
-            return  new PluginEntity(
-                        Name:this.Name,
-                        Author:this.Author,
-                        Description:this.Description,
+            //this.Functions.ForEach(x => { x.Url = _Url; x.Assembly = _Assembly; });  // x 是临时的~~ 修改不了
+
+            for (int i = 0; i < this.Functions.Count; i++)
+            {
+
+                //Functions[i].Url = _Url;
+                this.Functions[i].Url = "asdfasdf";
+                this.Functions[i].Assembly = _Assembly;
+            }
+
+            var temp = Functions.Select(a => new Function()
+            {
+                Action = a.Action,
+                Assembly = _Assembly,
+                Controller = a.Controller,
+                NameSpace = a.NameSpace,
+                ControllerType = a.ControllerType,
+                Name = a.Name,
+                Url = "xxxxxx"
+            });
+
+            _Functions = temp.ToList();
+            return new PluginEntity(
+                        Name: this.Name,
+                        Author: this.Author,
+                        Description: this.Description,
                         Functions: this.Functions.ToDictionary(x => x.Name), // 通过Function对象的Name属性作为key
-                        Assembly:Assembly
+                        Assembly: _Assembly
                        );
         }
     }

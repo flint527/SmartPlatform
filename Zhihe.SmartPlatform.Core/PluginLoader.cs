@@ -64,6 +64,8 @@ namespace Zhihe.SmartPlatform.Core
                 var fullName = fileInfo.FullName;
                 var index = fullName.LastIndexOf("\\bin\\");
                 if (index <= -1) continue;
+                //var index1 = fullName.LastIndexOf("\\zh-Hans\\");
+                //if (index1 >= 1) continue;
                 if (DllAssembly.Contains(fullName.Substring(index + 5))) continue; // 防止重复
                 string tagFilePath = pluginsFilesTempPath + "\\" + fullName.Substring(index + 5);
                 string strPath = Path.GetDirectoryName(tagFilePath);
@@ -87,6 +89,7 @@ namespace Zhihe.SmartPlatform.Core
             Dictionary<string, PluginEntity> PluginEntitys = new Dictionary<string, PluginEntity>();
             foreach (var pluginAssembly in pluginAssemblys) //循环每个插件dll文件
             {
+
                // 找出每个dll 文件中的所有的 controller 类型
                // PluginDescription pluginDescription = new PluginDescription();
                 Type[] allTypes = pluginAssembly.GetTypes();

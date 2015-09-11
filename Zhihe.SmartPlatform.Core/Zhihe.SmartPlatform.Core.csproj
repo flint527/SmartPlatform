@@ -46,7 +46,6 @@
     <Compile Include="BasePlugin.cs" />
     <Compile Include="ControllerFactory.cs" />
     <Compile Include="Function.cs" />
-    <Compile Include="PluginDescription.cs" />
     <Compile Include="PluginEntity.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="PlunginManager.cs" />
