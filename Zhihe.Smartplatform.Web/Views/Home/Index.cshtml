@@ -1,8 +1,107 @@
 ﻿@{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+    <div data-options="region:'north',border:false" style="height: 45px">
+        <div class="hx-nav">
+            <div class="hx-nav-btn">
+                <span class="easyui-linkbutton"><img src="~/Content/images/brand-logo.png" alt=""></span>
+                <a href="#" style="float: right" class="easyui-menubutton" data-options="menu:'#mm1'">
+                    <span>
+                        <img src="~/Content/images/admin.jpg" alt="">
+                    </span>admin
+                </a>
+            </div>
+            <div id="mm1" class="hx-nav-menu">
+                <div>History</div>
+                <div>Faq</div>
+                <div>Our Team</div>
+            </div>
+        </div>
+    </div>
+    <!-- north end -->
+
+    <div data-options="region:'south'" style="height: 25px">
+        福建省宏祥智能科技有限公司
+    </div>
+    <!-- south end -->
+
+    <div data-options="region:'west',title:'&nbsp;',collapsedSize:42,layoutCls:'asdf'" style="width:200px;">
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text"> 部门&用户 </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li><a href="javascript:openComponent('用户管理','asdfasdfasdfasdf')"><i class="menu-icon fa fa-caret-right"></i>用户管理</a></li>
+                    <li><a href="javascript:addPanel('用户信息','aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')"><i class="menu-icon fa fa-caret-right"></i>用户信息</a></li>
+                    <li><a href="javascript:addPanel('部门管理','epartmentIndex.html')"><i class="menu-icon fa fa-caret-right"></i>部门管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-cog"></i>
+                    <span class="menu-text"> 系统管理 </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>数据字典</a></li>
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>系统配置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-key"></i>
+                    <span class="menu-text"> 权限管理</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li><a href="javascript:addPanel('角色管理','4','RoleIndex.html')"><i class="menu-icon fa fa-caret-right"></i>角色管理</a></li>
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>模块管理</a></li>
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>操作管理</a></li>
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>权限管理</a></li>
+                    <li><a href="#"><i class="menu-icon fa fa-caret-right"></i>权限分配</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- west end -->
+
+    <div data-options="region:'center',border:false,">
+        <div id="tt" class="easyui-tabs" data-options="fit:true,tabHeight:37">
+
+        </div>
+    </div>
+    <!-- center end -->
+    <script>
+
+        function openComponent(menuName,onlyCode) {
+            if ($('#tt').tabs('exists', menuName)) {
+                $('#tt').tabs('select', menuName);
+            } else {
+                $('#tt').tabs('add', {
+                    title: menuName,
+                    href: "/Home/GetFunction/" + onlyCode,
+                    closable: true,
+                    extractor: function (data) {
+                        data = $.fn.panel.defaults.extractor(data);
+                        var tmp = $('<div></div>').html(data);
+                        data = tmp.find('#content').html();
+                        tmp.remove();
+                        return data;
+                    }
+                });
+            }
+        }
+
+    </script>
 
 
-this is home page
+    <div id="fullModelWindown"></div>
+

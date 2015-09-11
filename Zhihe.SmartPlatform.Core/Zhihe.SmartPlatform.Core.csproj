@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePlugin.cs" />
     <Compile Include="ControllerFactory.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="PluginDescription.cs" />

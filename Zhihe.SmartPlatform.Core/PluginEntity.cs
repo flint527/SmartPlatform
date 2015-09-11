@@ -9,7 +9,18 @@ namespace Zhihe.SmartPlatform.Core
 {
     public  class PluginEntity
     {
+        public PluginEntity()
+        {
+        }
 
+        public PluginEntity(string Name, string Author, string Description, Dictionary<string, Function> Functions, Assembly Assembly)
+        {
+            this.Name = Name;
+            this.Author = Author;
+            this.Description = Description;
+            this.Functions = Functions;
+            this.Assembly = Assembly;
+        }
         public  string Name { set; get; }
 
         public  string Author { set; get; }
@@ -20,17 +31,5 @@ namespace Zhihe.SmartPlatform.Core
 
         public  Assembly Assembly { set; get; }
 
-        /// <summary>
-        /// 根据命名空间的名称和控制器的名称来找到控制器的类型
-        /// </summary>
-        /// <param name="nameSpace"></param>
-        /// <param name="controllerName"></param>
-        /// <returns></returns>
-        //public  Type GetTypeByNamespaceAndControllerName(string nameSpace, string controllerName)
-        //{
-        //    Function function;
-        //    //PluginEntity.Functions.TryGetValue(nameSpace, out function);
-        //    return function.ControllerType;
-        //}
     }
 }

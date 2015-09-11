@@ -9,6 +9,17 @@ namespace Zhihe.SmartPlatform.Core
 {
     public class Function
     {
+        public Function()
+        {    
+        }
+
+        public Function(string Name, string NameSpace, string Controller, string Action) 
+        {
+            this.Name = Name;
+            this.NameSpace = NameSpace;
+            this.Controller = Controller;
+            this.Action = Action;
+        }
         public string Name { set; get; }
 
         public string NameSpace{set;get;}

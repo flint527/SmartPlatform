@@ -132,8 +132,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserMgrPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\admin.jpg" />
+    <Content Include="Content\images\admin48x48.jpg" />
+    <Content Include="Content\images\admin64x64.jpg" />
+    <Content Include="Content\images\brand-logo.png" />
+    <Content Include="Content\images\news.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -227,6 +233,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zhihe.SmartPlatform.Core\Zhihe.SmartPlatform.Core.csproj">
+      <Project>{b508b77a-6f3f-46de-a15f-625bf788b697}</Project>
+      <Name>Zhihe.SmartPlatform.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

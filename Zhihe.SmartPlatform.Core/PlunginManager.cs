@@ -8,15 +8,14 @@ namespace Zhihe.SmartPlatform.Core
 {
     public static class PlunginManager
     {
-
         //BusinessDataAccess businessDataAccess = new BusinessDataAccess();
         /// <summary>
         /// 初始化插件信息到数据库
         /// </summary>
         /// <param name="pluginDescription"></param>
         /// <returns></returns>
-        public static void InitPluginFunctionToDB(PluginDescription pluginDescription)
-        {
+        //public static void InitPluginFunctionToDB(PluginDescription pluginDescription)
+        //{
             //foreach (PluginFunction pluginFunction in pluginDescription.plugin.pluginFunctions)
             //{
             //    IList<SqlParameter> parameterList = BaseDBSupport.GetParameters<PluginFunction>(pluginFunction);
@@ -33,7 +32,7 @@ namespace Zhihe.SmartPlatform.Core
             //    }
             //    BaseDB.AddData<PluginFunction>(pluginFunction, parameterList);
             //}
-        }
+        //}
 
         public static void DeletePluginFunction(string onlyCode)
         {

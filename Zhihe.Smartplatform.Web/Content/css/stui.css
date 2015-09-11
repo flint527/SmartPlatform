@@ -1,0 +1,18 @@
+/*! Created by Jinlong.fan on 2015/7/17. */
+.tree-folder-open {
+    background: url('gray/images/tree_icons.png') no-repeat -223px -6px;
+}
+.tree-folder {
+    background: url('gray/images/tree_icons.png') no-repeat -207px -6px;
+}
+.tree-expanded {
+    background: url('gray/images/tree_icons.png') no-repeat -18px -6px;
+}
+.tree-collapsed {
+    background: url('gray/images/tree_icons.png') no-repeat 0px -6px;
+}
+.tree-file {
+    background: url('gray/images/tree_icons.png') no-repeat -239px -6px;
+}
+
+.tabs-panels .panel{padding-left: 2px;}

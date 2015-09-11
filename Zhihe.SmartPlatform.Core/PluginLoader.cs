@@ -87,13 +87,13 @@ namespace Zhihe.SmartPlatform.Core
             Dictionary<string, PluginEntity> PluginEntitys = new Dictionary<string, PluginEntity>();
             foreach (var pluginAssembly in pluginAssemblys) //循环每个插件dll文件
             {
-                // 找出每个dll 文件中的所有的 controller 类型
-                PluginDescription pluginDescription = new PluginDescription();
+               // 找出每个dll 文件中的所有的 controller 类型
+               // PluginDescription pluginDescription = new PluginDescription();
                 Type[] allTypes = pluginAssembly.GetTypes();
                 List<Type> controllerTypes = allTypes.Where(x => x.Name.Contains("Controller") && x.GetInterface("IController") != null).ToList();
 
                 List<Function> functions;
-                PluginEntity pluginEntity = ReadPluginXml(pluginAssembly, out functions);
+                PluginEntity pluginEntity = ReadPluginInfo(pluginAssembly, out functions);
 
                 if (pluginEntity == null && functions == null) continue;
 
@@ -104,7 +104,7 @@ namespace Zhihe.SmartPlatform.Core
 	                {
 		                pluginEntity.Functions[function.Name].ControllerType = type[0];
 	                }
-                    else //  配值文件中写的和世界的匹配不上 检查配置文件的属性是否符合要求
+                    else //  配值文件中写的和实际的匹配不上 检查配置文件的属性是否符合要求
                     {
                         continue;
                     }
@@ -115,26 +115,6 @@ namespace Zhihe.SmartPlatform.Core
             }
             return PluginEntitys;
         }
-
-
-        /// <summary>
-        /// 获得插件中的ControllerTypes信息
-        /// </summary>
-        /// <param name="pluginAssembly"></param>
-        ///// <returns></returns>
-        //private static Dictionary<string, Type> GetControllerTypesFromAssembly(Assembly pluginAssembly)
-        //{
-        //    Dictionary<string, Type> controllerTypes = new Dictionary<string, Type>();
-        //    var allTypes = pluginAssembly.GetTypes();
-        //    foreach (var oneType in allTypes)
-        //    {
-        //        if (oneType.Name != null && oneType.Name.Contains("Controller") && oneType.GetInterface("IController") != null)
-        //        {
-        //            controllerTypes.Add(oneType.Name, oneType);
-        //        }
-        //    }
-        //    return controllerTypes;
-        //}
 
         /// <summary>
         /// 初始化插件信息
@@ -148,56 +128,24 @@ namespace Zhihe.SmartPlatform.Core
                 //PlunginManager.InitPluginFunctionToDB(pluginDescription.Value);
 
                 //初始化路由信息
-                //pluginEntitys.Values.ToList()
-
                 InitRoutes(pluginEntitys.Values.ToList());
             }
         }
 
         /// <summary>
-        /// 初始化路由
+        /// 加载每个插件信息到路由表中
         /// </summary>
-        /// <param name="routeEntity"></param>
-        //public static void InitRoutes(List<PluginEntity> pluginEntitys)
-        //{
-        //    foreach (PluginEntity pluginEntity in pluginEntitys)
-        //    {
-        //        pluginEntity.Functions.Values.ToList().ForEach(x =>{
-
-
-        //            var route = RouteTable.Routes.MapRoute(
-        //                name: x.Name,
-        //                url: string.IsNullOrEmpty(x.Url) ? "{controller}/{action}/{id}" : x.Url,
-        //                defaults: new
-        //                {
-        //                    controller = x.Controller,
-        //                    action = x.Action,
-        //                    id = UrlParameter.Optional,
-        //                    PluginName = x.NameSpace
-        //                }
-        //              );
-        //            route.DataTokens["namespace"] = x.NameSpace;
-        //            route.DataTokens["pluginName"] = pluginEntity.Name;
-        //        });
-        //      // RouteTable.Routes.Reverse();
-        //    }
-        //}
-
-
-
+        /// <param name="pluginEntitys"></param>
         public static void InitRoutes(List<PluginEntity> pluginEntitys)
         {
             foreach (PluginEntity pluginEntity in pluginEntitys)
             {
-
-                foreach (Function x in pluginEntity.Functions.Values)
+                pluginEntity.Functions.Values.ToList().ForEach(x =>
                 {
-                    //RouteTable.Routes
-
-
-                    var route = RouteTable.Routes.MapRoute(
+                    var route = RouteTable.Routes.MapRoute( //RouteTable.Routes
                        name: x.Name,
-                       url: string.IsNullOrEmpty(x.Url) ? "{controller}/{action}/{id}" : x.Url,
+                       //url: string.IsNullOrEmpty(x.Url) ? "{controller}/{action}/{id}" : x.Url,
+                       url: string.IsNullOrEmpty(x.Url) ? x.Controller + "/{action}/{id}" : x.Url,  // 允许写插件的用户自定义路由
                        defaults: new
                        {
                            controller = x.Controller,
@@ -208,28 +156,72 @@ namespace Zhihe.SmartPlatform.Core
                      );
                     route.DataTokens["namespace"] = x.NameSpace;
                     route.DataTokens["pluginName"] = pluginEntity.Name;
-                }
-
-               
-                RouteTable.Routes.Reverse();
+                });
             }
         }
 
 
 
-
-        public static PluginEntity ReadPluginXml(Assembly pluginAssembly,out List<Function> Functions) 
+        /// <summary>
+        /// 读取程序员配置插件信息，可以通过两种方式进行获取 1.XML文件方式，2.插件信息类方式
+        /// </summary>
+        /// <param name="pluginAssembly"></param>
+        /// <param name="Functions"></param>
+        /// <returns></returns>
+        public static PluginEntity ReadPluginInfo(Assembly pluginAssembly,out List<Function> Functions) 
         {
             // 找到文件的路径名称
             string assFullName = pluginAssembly.FullName;
             string areaName = assFullName.Substring(0, assFullName.IndexOf(","));
-            string namexml = areaName.Substring(areaName.LastIndexOf('.') + 1) + "Plugin.xml";
-            string filePath = Path.Combine(pluginsFilesPath, areaName.Substring(areaName.LastIndexOf('.') + 1), namexml);
+            string pluginDir = Path.Combine(pluginsFilesPath, areaName.Substring(areaName.LastIndexOf('.') + 1));
+            DirectoryInfo directory = new DirectoryInfo(pluginDir);
+            FileInfo[] fileInfoArray = directory.GetFiles("*.xml");  // 获取某个插件目录下的文件
 
-            if (!File.Exists(filePath)) 
+            if (fileInfoArray.Length != 0) //  有插件信息配置文件  直接解析插件配置文件XML 
+            {
+                string filePath = fileInfoArray[0].FullName; // 一个插件只能配置一个插件文件 不允许配置多个插件文件
+                return ReadPluginXml(pluginAssembly, filePath, out  Functions);
+            }
+            else // 没有写插件配置文件 通过解析插件信息类来获取插件信息
+            {
+                return ReadPluginClass(pluginAssembly, out Functions);
+            }
+        }
+
+        /// <summary>
+        /// 通过解析用户配置的插件信息类来获取插件信息
+        /// </summary>
+        /// <param name="pluginAssembly"></param>
+        /// <param name="Functions"></param>
+        /// <returns></returns>
+        public static PluginEntity ReadPluginClass(Assembly pluginAssembly,out List<Function> Functions)
+        {
+                var allTypes = pluginAssembly.GetTypes();
+                foreach (var oneType in allTypes)
+                {
+                    if (typeof(BasePlugin).IsAssignableFrom(oneType) && oneType.IsClass && !oneType.IsAbstract)
+                    {
+                        BasePlugin plugin = (BasePlugin)Activator.CreateInstance(oneType);
+                        return plugin.GetPluginEntity(pluginAssembly,plugin.Url, out Functions);
+                    }
+                }
+                Functions = null;
+                return null;
+        }
+
+        /// <summary>
+        /// 通过解析用户配置的XML文件来获取插件信息
+        /// </summary>
+        /// <param name="pluginAssembly"></param>
+        /// <param name="filePath"></param>
+        /// <param name="Functions"></param>
+        /// <returns></returns>
+        public static PluginEntity ReadPluginXml(Assembly pluginAssembly,string filePath, out List<Function> Functions) 
+        {
+            if (!File.Exists(filePath))
             {
                 Functions = null;
-                return null; 
+                return null;
             }
 
             Functions = new List<Function>();
@@ -259,14 +251,14 @@ namespace Zhihe.SmartPlatform.Core
                     Dictionary<string, Function> functions = new Dictionary<string, Function>();
                     foreach (XmlNode funcs in funNode)
                     {
-                         string tempUrl = string.Empty;
-                         if ("Url".Equals(funcs.Name))
-                         {
+                        string tempUrl = string.Empty;
+                        if ("Url".Equals(funcs.Name))
+                        {
                             tempUrl = funcs.InnerText;
-                         }
+                        }
 
-                         if ("Function".Equals(funcs.Name))
-                         {
+                        if ("Function".Equals(funcs.Name))
+                        {
                             Function function = new Function();
                             XmlElement functs = funcs as XmlElement;
                             XmlNodeList functNode = functs.ChildNodes;
@@ -292,16 +284,14 @@ namespace Zhihe.SmartPlatform.Core
                             }
                             if (function.Name == null) continue;
                             Functions.Add(function);
-                            functions.Add(function.Name, function);  
+                            functions.Add(function.Name, function);  // 通过Function对象的Name属性作为key
                             function.Assembly = pluginAssembly;
-                         }
+                        }
                     }
                     pluginEntity.Functions = functions;
                 }
             }
             return pluginEntity;
-        
         }
-
     }
 }

@@ -4,7 +4,7 @@
   <Author>fanjinlong</Author>
   <Description>用户管理功能模块</Description>
   <Functions>
-    <Url></Url> <!--内容为空的时候区默认值：{controller}/{action}/{id}-->
+    <Url></Url> <!--内容为空的时候区默认值：Controller/{action}/{id}-->
 
     <Function>
       <Name>AddUserController</Name>
