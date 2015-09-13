@@ -13,3 +13,8 @@ D:\testgit\platform\SmartPlatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.Smart
 D:\testgit\platform\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.dll
 D:\testgit\platform\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.pdb
 D:\testgit\platform\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.csprojResolveAssemblyReference.cache
+D:\MVC4\SmartPlatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.dll
+D:\MVC4\SmartPlatform\Zhihe.SmartPlatform.Core\bin\Debug\Zhihe.SmartPlatform.Core.pdb
+D:\MVC4\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.csprojResolveAssemblyReference.cache
+D:\MVC4\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.dll
+D:\MVC4\SmartPlatform\Zhihe.SmartPlatform.Core\obj\Debug\Zhihe.SmartPlatform.Core.pdb

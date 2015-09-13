@@ -64,8 +64,7 @@ namespace Zhihe.SmartPlatform.Core
                 var fullName = fileInfo.FullName;
                 var index = fullName.LastIndexOf("\\bin\\");
                 if (index <= -1) continue;
-                //var index1 = fullName.LastIndexOf("\\zh-Hans\\");
-                //if (index1 >= 1) continue;
+               
                 if (DllAssembly.Contains(fullName.Substring(index + 5))) continue; // 防止重复
                 string tagFilePath = pluginsFilesTempPath + "\\" + fullName.Substring(index + 5);
                 string strPath = Path.GetDirectoryName(tagFilePath);
@@ -173,6 +172,14 @@ namespace Zhihe.SmartPlatform.Core
         /// <returns></returns>
         public static PluginEntity ReadPluginInfo(Assembly pluginAssembly,out List<Function> Functions) 
         {
+            int index1 = pluginAssembly.CodeBase.LastIndexOf("/zh-Hans/");
+            int index2 = pluginAssembly.CodeBase.LastIndexOf("/App_Data/Dependence/");  //不包含这个目录的时候不正确
+            if (index1 >= 1 || index2 <=-1) 
+            {
+                Functions = null;
+                return null;
+            }
+
             // 找到文件的路径名称
             string assFullName = pluginAssembly.FullName;
             string areaName = assFullName.Substring(0, assFullName.IndexOf(","));
