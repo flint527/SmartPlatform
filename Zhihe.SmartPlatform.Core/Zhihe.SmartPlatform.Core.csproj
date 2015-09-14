@@ -52,6 +52,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebPageEngine.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zhihe.Smartplatform.SysTools\Zhihe.Smartplatform.SysTools.csproj">
+      <Project>{2962a0e5-669d-40c2-99ea-447d3df1ad57}</Project>
+      <Name>Zhihe.Smartplatform.SysTools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

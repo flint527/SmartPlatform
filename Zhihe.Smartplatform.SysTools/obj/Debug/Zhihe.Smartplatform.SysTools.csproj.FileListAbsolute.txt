@@ -2,3 +2,15 @@ D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Sma
 D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.pdb
 D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.dll
 D:\MVCDEMOS\Zhihe.Smartplatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.pdb
+<<<<<<< HEAD
+=======
+D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.pdb
+D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\testgit\platform\SmartPlatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.pdb
+D:\MVC4\SmartPlatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\MVC4\SmartPlatform\Zhihe.Smartplatform.SysTools\bin\Debug\Zhihe.Smartplatform.SysTools.pdb
+D:\MVC4\SmartPlatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.csprojResolveAssemblyReference.cache
+D:\MVC4\SmartPlatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.dll
+D:\MVC4\SmartPlatform\Zhihe.Smartplatform.SysTools\obj\Debug\Zhihe.Smartplatform.SysTools.pdb
+>>>>>>> 693a6cbe52ed27f26779d31cc6a5de73d584ee68

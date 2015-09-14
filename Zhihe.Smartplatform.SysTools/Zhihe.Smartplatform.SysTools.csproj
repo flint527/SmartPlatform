@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attr_SystemAttribute.cs" />
+    <Compile Include="DB_AddDataHelper.cs" />
+    <Compile Include="DB_DeleteDataHelper.cs" />
+    <Compile Include="DB_QueryDataHelper.cs" />
+    <Compile Include="DB_SqlHelper.cs" />
+    <Compile Include="DB_SqlHelperParameterCache.cs" />
+    <Compile Include="DB_UpdateDataHelper.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

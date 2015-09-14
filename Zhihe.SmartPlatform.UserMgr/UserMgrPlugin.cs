@@ -14,7 +14,7 @@ namespace Zhihe.SmartPlatform.UserMgr
 
         public override string Description { get { return "用户管理功能模块"; } }
 
-        public override string Url { get { return ""; } set { this.Url = "asdf"; } } //内容为空的时候区默认值：Controller/{action}/{id}
+        public override string Url { get { return ""; } } //内容为空的时候区默认值：Controller/{action}/{id}
 
 
         public override List<Function> Functions
@@ -36,7 +36,6 @@ namespace Zhihe.SmartPlatform.UserMgr
                           )
                       };
             }
-            set { }
         }
     }
 

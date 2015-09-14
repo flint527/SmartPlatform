@@ -15,40 +15,39 @@ namespace Zhihe.SmartPlatform.Core
 
         public abstract string Description { get; }
 
-        public abstract string Url { get; set; }//内容为空的时候取默认值：Controller/{action}/{id}
+        public abstract string Url { get; }//内容为空的时候取默认值：Controller/{action}/{id}
 
-        public abstract List<Function> Functions { get; set; }
+        public abstract List<Function> Functions { get; }
 
 
         public PluginEntity GetPluginEntity(Assembly _Assembly, string _Url, out List<Function> _Functions)
         {
             //this.Functions.ForEach(x => { x.Url = _Url; x.Assembly = _Assembly; });  // x 是临时的~~ 修改不了
 
-            for (int i = 0; i < this.Functions.Count; i++)
-            {
+            //for (int i = 0; i < this.Functions.Count; i++)   // 这样写赋值不上
+            //{
 
-                //Functions[i].Url = _Url;
-                this.Functions[i].Url = "asdfasdf";
-                this.Functions[i].Assembly = _Assembly;
-            }
+            //    //Functions[i].Url = _Url;
+            //    this.Functions[i].Url = "asdfasdf";
+            //    this.Functions[i].Assembly = _Assembly;
+            //}
 
-            var temp = Functions.Select(a => new Function()
-            {
-                Action = a.Action,
-                Assembly = _Assembly,
-                Controller = a.Controller,
-                NameSpace = a.NameSpace,
-                ControllerType = a.ControllerType,
-                Name = a.Name,
-                Url = "xxxxxx"
-            });
+            _Functions = Functions.Select(x => new Function()
+                {
+                    Action = x.Action,
+                    Assembly = _Assembly,
+                    Controller = x.Controller,
+                    NameSpace = x.NameSpace,
+                    ControllerType = x.ControllerType,
+                    Name = x.Name,
+                    Url = _Url
+                }).ToList();
 
-            _Functions = temp.ToList();
             return new PluginEntity(
                         Name: this.Name,
                         Author: this.Author,
                         Description: this.Description,
-                        Functions: this.Functions.ToDictionary(x => x.Name), // 通过Function对象的Name属性作为key
+                        Functions: _Functions.ToDictionary(x => x.Name), // 通过Function对象的Name属性作为key
                         Assembly: _Assembly
                        );
         }

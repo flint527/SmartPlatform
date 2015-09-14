@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Plugin>
+  <!--名称必须和项目名称的最后一个点号后面的单词相同 且不能重复-->
+  <Name>BasicData</Name>
+  <Author>fanjinlong</Author>
+  <Description>系统基础数据管理功能模块</Description>
+  <Functions>
+    <!--内容为空的时候区默认值：Controller/{action}/{id}  一个插件要求只有一种形式的路由规则-->
+    <Url></Url>
+    <Function>
+      <Name>UserMgrController</Name>
+      <NameSpace>Zhihe.SmartPlatform.BasicData.Controllers</NameSpace>
+      <Controller>UserMgr</Controller>
+      <Action>Index</Action>
+    </Function>
+
+  </Functions>
+</Plugin>
